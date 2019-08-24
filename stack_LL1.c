@@ -82,8 +82,14 @@ int isEmpty(struct stackElem **x){
 void main(){
 
 //    struct stackElem *p_1st = createStackElem();
+// why do we have a createStackElem() if we are not using it?
+// by assigning this to NULL, we're not really assigning any memory.
     struct stackElem *p_1st = NULL;
     printf("\n\nThe value of &p_1st is %p", &p_1st);
+
+// Try this once
+//    struct stackElem *p_1st = createStackElem();
+//    printf("\n\nThe value of &p_1st is %p", &p_1st);
 
     printf("\n\nThe response of is stack empty is %d", isEmpty(&p_1st));
 
