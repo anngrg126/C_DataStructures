@@ -9,11 +9,15 @@ struct binaryTreeNode{
 };
 
 // adding a function to create a node
-struct binaryTreeNode *createTreeNode(){
+struct binaryTreeNode *createTreeNode(int data){
 
     struct binaryTreeNode *temp =  malloc(sizeof(struct binaryTreeNode));
     if (!temp)
         return NULL;
+
+    temp->data = data;
+    temp->left = NULL;
+    temp->right = NULL;
 
     return temp;
 };
@@ -32,45 +36,15 @@ void preorderRecursive(struct binaryTreeNode *root){
 
 void main(){
 
-    struct binaryTreeNode *R = createTreeNode();
-    struct binaryTreeNode *RL = createTreeNode();
-    struct binaryTreeNode *RR = createTreeNode();
-    struct binaryTreeNode *RLL = createTreeNode();
-    struct binaryTreeNode *RLR = createTreeNode();
-    struct binaryTreeNode *RRL = createTreeNode();
-    struct binaryTreeNode *RRR = createTreeNode();
+    struct binaryTreeNode *R = createTreeNode(1);
+    R->left = createTreeNode(2);
+    R->right = createTreeNode(3);
 
-    R->data = 1;
-    R->left = RL;
-    R->right = RR;
+    R->left->left = createTreeNode(4);
+    R->left->right = createTreeNode(5);
 
-    printf("%d\n", R->data);
-    printf("Ann\n");
-
-
-    RL->data = 2;
-    RL->left = RLL;
-    RL->right = RLR;
-
-    RR->data = 3;
-    RR->left = RRL;
-    RR->right = RRR;
-
-    RLL->data = 4;
-    RLL->left = NULL;
-    RLL->right = NULL;
-
-    RLR->data = 5;
-    RLR->left = NULL;
-    RLR->right = NULL;
-
-    RRL->data = 6;
-    RRL->left = NULL;
-    RRL->right = NULL;
-
-    RRR->data = 7;
-    RRR->left = NULL;
-    RRR->right = NULL;
+    R->right->left = createTreeNode(6);
+    R->right->right = createTreeNode(7);
 
     preorderRecursive(R);
 
